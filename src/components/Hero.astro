@@ -6,10 +6,10 @@
         <div class="logo-wrapper">
              <img src="/logo.jpg" alt="T&H Avanza Logo" class="party-logo" />
         </div>
-        <h1 class="animate-up">T&H Avanza</h1>
-        <p class="subtitle animate-up delay-1">Un partido por y para el progreso. Construyendo el futuro de nuestra comunidad con transparencia y compromiso.</p>
+        <h1 class="animate-up">Un partido por y para el progreso</h1>
+        <p class="subtitle animate-up delay-1">Construyendo el futuro de nuestra comunidad con transparencia y compromiso.</p>
         <div class="cta-group animate-up delay-2">
-            <a href="/contrato_electoral.pdf" download="Contrato_Electoral_tyhavanza.pdf" class="btn btn-secondary">
+            <a href="/contrato_electoral.pdf" download="Contrato_Electoral_tyhavanza.pdf" class="btn btn-primary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Descargar Contrato Electoral (PDF)
             </a>
@@ -23,8 +23,8 @@
         min-height: 100vh;
         display: flex;
         align-items: center;
-        background: var(--secondary);
-        color: var(--text-inverse);
+        background: var(--background);
+        color: var(--text-primary);
         padding: var(--section-padding);
         overflow: hidden;
     }
@@ -36,7 +36,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: radial-gradient(circle at 70% 30%, rgba(255, 215, 0, 0.15), transparent);
+        background: radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0.05), transparent);
         pointer-events: none;
     }
 
@@ -44,7 +44,8 @@
         position: relative;
         z-index: 2;
         text-align: center;
-        max-width: 800px;
+        max-width: 900px;
+        margin: 0 auto;
     }
 
     .logo-wrapper {
@@ -52,17 +53,18 @@
     }
 
     .party-logo {
-        height: 120px;
+        height: 150px;
         width: auto;
         border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
     h1 {
-        font-size: 5rem;
+        font-size: 4rem;
+        line-height: 1.1;
         margin-bottom: 1.5rem;
-        color: var(--primary);
-        text-transform: uppercase;
+        color: var(--secondary);
+        text-transform: none;
     }
 
     .subtitle {

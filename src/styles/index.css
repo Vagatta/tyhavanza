@@ -2,17 +2,17 @@
 
 :root {
     /* Color Palette - Yellow & Black */
-    --primary: #FFD700; /* Vibrant Gold/Yellow */
+    --primary: #ffd700; /* Official Logo Yellow */
     --primary-dark: #ccac00;
     --secondary: #000000;
-    --background: #ffffff;
-    --text-primary: #1a1a1a;
-    --text-inverse: #ffffff;
-    --accent: #FFD700;
+    --background: #ffd700;
+    --text-primary: #000000;
+    --text-inverse: #000000;
+    --accent: #000000;
     
     /* System Colors */
-    --surface: #f9f9f9;
-    --border: #e2e8f0;
+    --surface: #ffd700;
+    --border: rgba(0,0,0,0.1);
 
     /* Typography */
     --font-heading: 'Outfit', sans-serif;
