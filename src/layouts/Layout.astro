@@ -1,0 +1,33 @@
+---
+const { title = "T&H Avanza - Por un futuro brillante", description = "Plataforma política oficial de T&H Avanza. Únete a nuestro movimiento por el cambio." } = Astro.props;
+import '../styles/index.css';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		
+		<!-- Open Graph / SEO -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://tyhavanza.com/" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/logo.jpg" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://tyhavanza.com/" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content="/logo.jpg" />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
