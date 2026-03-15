@@ -2,6 +2,7 @@
 const { title = "T&H Avanza - Por un futuro brillante", description = "Plataforma política oficial de T&H Avanza. Únete a nuestro movimiento por el cambio." } = Astro.props;
 import '../styles/index.css';
 import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <!DOCTYPE html>
@@ -31,5 +32,6 @@ import Navbar from '../components/Navbar.astro';
 	<body>
 		<Navbar />
 		<slot />
+		<Footer />
 	</body>
 </html>
