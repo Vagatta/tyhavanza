@@ -2,17 +2,18 @@
 
 :root {
     /* Color Palette - Yellow & Black */
-    --primary: #ffd700; /* Official Logo Yellow */
-    --primary-dark: #ccac00;
+    --primary: #f8b508;
+    /* Official Logo Yellow */
+    --primary-dark: #d49b06;
     --secondary: #000000;
-    --background: #ffd700;
+    --background: #f8b508;
     --text-primary: #000000;
     --text-inverse: #000000;
     --accent: #000000;
-    
+
     /* System Colors */
-    --surface: #ffd700;
-    --border: rgba(0,0,0,0.1);
+    --surface: #f8b508;
+    --border: rgba(0, 0, 0, 0.1);
 
     /* Typography */
     --font-heading: 'Outfit', sans-serif;
@@ -21,7 +22,7 @@
     /* Spacing */
     --section-padding: 8rem 2rem;
     --container-max-width: 1200px;
-    
+
     /* Effects */
     --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -45,7 +46,10 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-family: var(--font-heading);
     letter-spacing: -0.02em;
     font-weight: 700;
@@ -83,7 +87,7 @@ a {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary {
