@@ -1,6 +1,7 @@
 ---
 const { title = "T&H Avanza - Por un futuro brillante", description = "Plataforma política oficial de T&H Avanza. Únete a nuestro movimiento por el cambio." } = Astro.props;
 import '../styles/index.css';
+import Navbar from '../components/Navbar.astro';
 ---
 
 <!DOCTYPE html>
@@ -28,6 +29,7 @@ import '../styles/index.css';
 		<meta property="twitter:image" content="/logo.jpg" />
 	</head>
 	<body>
+		<Navbar />
 		<slot />
 	</body>
 </html>
