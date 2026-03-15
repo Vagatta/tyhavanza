@@ -6,14 +6,14 @@
     /* Official Logo Yellow */
     --primary-dark: #d49b06;
     --secondary: #000000;
-    --background: #f8b508;
-    --text-primary: #000000;
-    --text-inverse: #000000;
-    --accent: #000000;
+    --background: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-inverse: #ffffff;
+    --accent: #f8b508;
 
     /* System Colors */
-    --surface: #f8b508;
-    --border: rgba(0, 0, 0, 0.1);
+    --surface: #f9f9f9;
+    --border: #e2e8f0;
 
     /* Typography */
     --font-heading: 'Outfit', sans-serif;

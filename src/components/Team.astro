@@ -27,7 +27,7 @@ const team = [
 <style>
     .team {
         padding: var(--section-padding);
-        background: var(--background);
+        background: #ffffff;
     }
 
     .section-title {
@@ -48,7 +48,7 @@ const team = [
         left: 0;
         width: 60px;
         height: 6px;
-        background: var(--secondary);
+        background: var(--primary);
     }
 
     .team-grid {
@@ -58,18 +58,18 @@ const team = [
     }
 
     .team-card {
-        background: rgba(0, 0, 0, 0.03);
+        background: #ffffff;
         border-radius: 20px;
         overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         transition: var(--transition-smooth);
-        border: 1px solid rgba(0,0,0,0.1);
+        border: 1px solid var(--border);
     }
 
     .team-card:hover {
         transform: translateY(-10px);
-        box-shadow: 0 30px 60px -15px rgba(0,0,0,0.1);
-        border-color: var(--secondary);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        border-color: var(--primary);
     }
 
     .image-container {
@@ -96,14 +96,15 @@ const team = [
     .member-info h3 {
         font-size: 1.5rem;
         margin-bottom: 0.5rem;
+        color: var(--secondary);
     }
 
     .member-info p {
         color: #666;
-        font-weight: 500;
+        font-weight: 600;
         text-transform: uppercase;
-        font-size: 0.9rem;
-        letter-spacing: 0.05em;
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
     }
 
     .text-center { text-align: center; }
