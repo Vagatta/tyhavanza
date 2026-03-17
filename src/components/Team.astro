@@ -1,26 +1,52 @@
 ---
-const team = [
-    { name: "Gema Rodriguez", role: "Candidata a la Presidencia", image: "/gema_rodriguez.jpeg" },
-    { name: "Jorge Maeso", role: "Coordinador de Campaña", image: "/jorge_maeso.png" },
-    { name: "Crespo elMaquina", role: "Secretario General", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400" }
+const teamHerrera = [
+    { name: "Gemma Rodríguez", role: "Representante en Herrera de Duero", image: "/gema_rodriguez.jpeg" },
+    { name: "Manin", role: "Pasante", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400" }
+];
+
+const teamTudela = [
+    { name: "Jorge Maeso", role: "Representante en Tudela de Duero", image: "/jorge_maeso.png" },
+    { name: "Raúl", role: "Pasante", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400" }
 ];
 ---
 <section class="team" id="nosotros">
     <div class="container text-center">
         <h2 class="section-title">Quiénes Somos</h2>
-        <div class="team-grid">
-            {team.map(member => (
-                <div class="team-card">
-                    <div class="image-container">
-                        <img src={member.image} alt={member.name} />
+        
+        <div class="team-location">
+            <h3 class="location-title">Equipo Herrera de Duero</h3>
+            <div class="team-grid">
+                {teamHerrera.map(member => (
+                    <div class="team-card">
+                        <div class="image-container">
+                            <img src={member.image} alt={member.name} />
+                        </div>
+                        <div class="member-info">
+                            <h4>{member.name}</h4>
+                            <p>{member.role}</p>
+                        </div>
                     </div>
-                    <div class="member-info">
-                        <h3>{member.name}</h3>
-                        <p>{member.role}</p>
-                    </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
+
+        <div class="team-location">
+            <h3 class="location-title">Equipo Tudela de Duero</h3>
+            <div class="team-grid">
+                {teamTudela.map(member => (
+                    <div class="team-card">
+                        <div class="image-container">
+                            <img src={member.image} alt={member.name} />
+                        </div>
+                        <div class="member-info">
+                            <h4>{member.name}</h4>
+                            <p>{member.role}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -49,6 +75,23 @@ const team = [
         width: 60px;
         height: 6px;
         background: var(--primary);
+    }
+
+    .team-location {
+        margin-bottom: 5rem;
+    }
+
+    .team-location:last-child {
+        margin-bottom: 0;
+    }
+
+    .location-title {
+        font-size: 2rem;
+        color: var(--secondary);
+        margin-bottom: 3rem;
+        text-align: left;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--border);
     }
 
     .team-grid {
@@ -80,12 +123,10 @@ const team = [
     .image-container img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
+        object-position: center;
+        background-color: #fafafa;
         transition: var(--transition-smooth);
-    }
-
-    .team-card:hover .image-container img {
-        transform: scale(1.05);
     }
 
     .member-info {
@@ -93,10 +134,11 @@ const team = [
         text-align: center;
     }
 
-    .member-info h3 {
+    .member-info h4 {
         font-size: 1.5rem;
         margin-bottom: 0.5rem;
         color: var(--secondary);
+        font-family: var(--font-heading);
     }
 
     .member-info p {
@@ -108,4 +150,11 @@ const team = [
     }
 
     .text-center { text-align: center; }
+
+    @media (max-width: 768px) {
+        .location-title {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+    }
 </style>
