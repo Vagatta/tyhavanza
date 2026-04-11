@@ -1,12 +1,69 @@
 ---
 const teamHerrera = [
-    { name: "Gemma Rodríguez", role: "", image: "/gema_rodriguez.jpeg" },
-    { name: "Manin", role: "", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400" }
+    { 
+        name: "Gemma Rodríguez", 
+        role: "", 
+        image: "/gema_rodriguez.webp",
+        bio: [
+            "Docente de formación profesional",
+            "Tutora en E-learning",
+            "Curso de Contabilidad avalado por la cámara de comercio",
+            "Master Administrativo",
+            "Idiomas: Inglés A1"
+        ]
+    },
+    { 
+        name: "Manin", 
+        role: "", 
+        image: "/manin.webp",
+        isIndependent: true
+    }
 ];
 
 const teamTudela = [
-    { name: "Jorge Maeso", role: "", image: "/jorge_maeso.png" },
-    { name: "Raúl Prieto", role: "", image: "/raul_prieto.png" }
+    { 
+        name: "Jorge Maeso", 
+        role: "", 
+        image: "/jorge_maeso.webp",
+        bio: [
+            "Diplomado en enfermería UVA",
+            "Dueño del gimnasio Newfit",
+            "Estudiante de derecho",
+            "Inversiones patrimoniales y bienes inmuebles",
+            "Idiomas: Inglés B2"
+        ]
+    },
+    { 
+        name: "Raúl Prieto", 
+        role: "", 
+        image: "/raul.webp",
+        bio: [
+            "Licenciado ingeniero industrial",
+            "Master MBA DAE",
+            "Master en logística industrial",
+            "Auditor interno de calidad y medio ambiente",
+            "Idiomas: Inglés B2"
+        ]
+    },
+    { 
+        name: "Diandra", 
+        role: "", 
+        image: "/diandra.webp",
+        isIndependent: true,
+        bio: [
+            "Licenciatura en biología",
+            "Formación de postgrado en fisiología vegetal",
+            "Categoría docente / investigativa",
+            "Divulgadora científica",
+            "Idiomas: Inglés C1"
+        ]
+    },
+    { 
+        name: "Alfredo", 
+        role: "", 
+        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400",
+        isIndependent: true
+    }
 ];
 ---
 <section class="team" id="nosotros">
@@ -17,13 +74,30 @@ const teamTudela = [
             <h3 class="location-title">Equipo Herrera de Duero</h3>
             <div class="team-grid">
                 {teamHerrera.map(member => (
-                    <div class="team-card">
-                        <div class="image-container">
-                            <img src={member.image} alt={member.name} />
-                        </div>
-                        <div class="member-info">
-                            <h4>{member.name}</h4>
-                            <p>{member.role}</p>
+                    <div class={member.bio ? "flip-card" : "static-card"}>
+                        <div class="flip-card-inner">
+                            {/* Front of card */}
+                            <div class="flip-card-front">
+                                <div class="image-container">
+                                    <img src={member.image} alt={member.name} />
+                                </div>
+                                <div class="member-info">
+                                    <h4>{member.name}</h4>
+                                    {member.isIndependent && <p class="independent">(independiente)</p>}
+                                    <p>{member.role}</p>
+                                </div>
+                            </div>
+                            {/* Back of card */}
+                            {member.bio && (
+                                <div class="flip-card-back">
+                                    <div class="bio-content">
+                                        <h4>{member.name}</h4>
+                                        <ul>
+                                            {member.bio.map(item => <li>{item}</li>)}
+                                        </ul>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
                 ))}
@@ -34,13 +108,30 @@ const teamTudela = [
             <h3 class="location-title">Equipo Tudela de Duero</h3>
             <div class="team-grid">
                 {teamTudela.map(member => (
-                    <div class="team-card">
-                        <div class="image-container">
-                            <img src={member.image} alt={member.name} />
-                        </div>
-                        <div class="member-info">
-                            <h4>{member.name}</h4>
-                            <p>{member.role}</p>
+                    <div class={member.bio ? "flip-card" : "static-card"}>
+                        <div class="flip-card-inner">
+                            {/* Front of card */}
+                            <div class="flip-card-front">
+                                <div class="image-container">
+                                    <img src={member.image} alt={member.name} />
+                                </div>
+                                <div class="member-info">
+                                    <h4>{member.name}</h4>
+                                    {member.isIndependent && <p class="independent">(independiente)</p>}
+                                    <p>{member.role}</p>
+                                </div>
+                            </div>
+                            {/* Back of card */}
+                            {member.bio && (
+                                <div class="flip-card-back">
+                                    <div class="bio-content">
+                                        <h4>{member.name}</h4>
+                                        <ul>
+                                            {member.bio.map(item => <li>{item}</li>)}
+                                        </ul>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
                 ))}
@@ -79,6 +170,7 @@ const teamTudela = [
 
     .team-location {
         margin-bottom: 5rem;
+        text-align: left;
     }
 
     .team-location:last-child {
@@ -91,7 +183,18 @@ const teamTudela = [
         margin-bottom: 3rem;
         text-align: left;
         padding-bottom: 1rem;
-        border-bottom: 2px solid var(--border);
+        position: relative;
+        display: inline-block;
+    }
+
+    .location-title::after {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        width: 40px;
+        height: 4px;
+        background: var(--primary);
     }
 
     .team-grid {
@@ -100,19 +203,33 @@ const teamTudela = [
         gap: 2.5rem;
     }
 
-    .team-card {
+    .static-card {
+        height: 500px;
         background: #ffffff;
         border-radius: 20px;
         overflow: hidden;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        transition: var(--transition-smooth);
         border: 1px solid var(--border);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
 
-    .team-card:hover {
+    .static-card:hover {
         transform: translateY(-10px);
         box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         border-color: var(--primary);
+        transition: var(--transition-smooth);
+    }
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
     }
 
     .image-container {
@@ -130,23 +247,14 @@ const teamTudela = [
     }
 
     .member-info {
-        padding: 2rem;
+        padding: 1.5rem;
         text-align: center;
     }
 
     .member-info h4 {
         font-size: 1.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.2rem;
         color: var(--secondary);
-        font-family: var(--font-heading);
-    }
-
-    .member-info p {
-        color: #666;
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 0.85rem;
-        letter-spacing: 0.1em;
     }
 
     .text-center { text-align: center; }
@@ -155,6 +263,9 @@ const teamTudela = [
         .location-title {
             text-align: center;
             font-size: 1.5rem;
+        }
+        .flip-card, .static-card {
+            height: 480px;
         }
     }
 </style>

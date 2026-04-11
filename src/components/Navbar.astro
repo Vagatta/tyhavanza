@@ -45,10 +45,22 @@
 
     .nav-container {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
     }
+
+    .nav-logo {
+        height: 50px;
+        width: auto;
+        border-radius: 8px;
+        transition: var(--transition-smooth);
+    }
+
+    .nav-logo:hover {
+        transform: scale(1.05);
+    }
+
 
     .nav-links {
         display: flex;
