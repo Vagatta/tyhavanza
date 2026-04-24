@@ -1,0 +1,277 @@
+---
+import gemaImg from '/public/gema_rodriguez.webp';
+import maninImg from '/public/manin.webp';
+import jorgeImg from '/public/jorge_maeso.webp';
+import raulImg from '/public/raul.webp';
+import diandraImg from '/public/diandra.webp';
+
+const teamHerrera = [
+    { 
+        name: "Gemma Rodríguez", 
+        role: "", 
+        image: gemaImg,
+        bio: [
+            "Docente de formación profesional",
+            "Tutora en E-learning",
+            "Curso de Contabilidad avalado por la cámara de comercio",
+            "Master Administrativo",
+            "Idiomas: Inglés A1"
+        ]
+    },
+    { 
+        name: "Manin", 
+        role: "", 
+        image: maninImg,
+        isIndependent: true
+    }
+];
+
+const teamTudela = [
+    { 
+        name: "Jorge Maeso", 
+        role: "", 
+        image: jorgeImg,
+        bio: [
+            "Diplomado en enfermería UVA",
+            "Dueño del gimnasio Newfit",
+            "Estudiante de derecho",
+            "Inversiones patrimoniales y bienes inmuebles",
+            "Idiomas: Inglés B2"
+        ]
+    },
+    { 
+        name: "Raúl Prieto", 
+        role: "", 
+        image: raulImg,
+        bio: [
+            "Licenciado ingeniero industrial",
+            "Master MBA DAE",
+            "Master en logística industrial",
+            "Auditor interno de calidad y medio ambiente",
+            "Idiomas: Inglés B2"
+        ]
+    },
+    { 
+        name: "Diandra", 
+        role: "", 
+        image: diandraImg,
+        isIndependent: true,
+        bio: [
+            "Licenciatura en biología",
+            "Formación de postgrado en fisiología vegetal",
+            "Categoría docente / investigativa",
+            "Divulgadora científica",
+            "Idiomas: Inglés C1"
+        ]
+    },
+    { 
+        name: "Alfredo", 
+        role: "", 
+        image: null,
+        isIndependent: true
+    }
+];
+---
+<section class="team" id="nosotros">
+    <div class="container text-center">
+        <h2 class="section-title">Quiénes Somos</h2>
+        
+        <div class="team-location">
+            <h3 class="location-title">Equipo Herrera de Duero</h3>
+            <div class="team-grid">
+                {teamHerrera.map(member => (
+                    <div class={member.bio ? "flip-card" : "static-card"}>
+                        <div class="flip-card-inner">
+                            {/* Front of card */}
+                            <div class="flip-card-front">
+                                <div class="image-container">
+                                    {member.image && <img src={member.image.src} alt={member.name} />}
+                                </div>
+                                <div class="member-info">
+                                    <h4>{member.name}</h4>
+                                    {member.isIndependent && <p class="independent">(independiente)</p>}
+                                    <p>{member.role}</p>
+                                </div>
+                            </div>
+                            {/* Back of card */}
+                            {member.bio && (
+                                <div class="flip-card-back">
+                                    <div class="bio-content">
+                                        <h4>{member.name}</h4>
+                                        <ul>
+                                            {member.bio.map(item => <li>{item}</li>)}
+                                        </ul>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <div class="team-location">
+            <h3 class="location-title">Equipo Tudela de Duero</h3>
+            <div class="team-grid">
+                {teamTudela.map(member => (
+                    <div class={member.bio ? "flip-card" : "static-card"}>
+                        <div class="flip-card-inner">
+                            {/* Front of card */}
+                            <div class="flip-card-front">
+                                <div class="image-container">
+                                    {member.image && <img src={member.image.src} alt={member.name} />}
+                                </div>
+                                <div class="member-info">
+                                    <h4>{member.name}</h4>
+                                    {member.isIndependent && <p class="independent">(independiente)</p>}
+                                    <p>{member.role}</p>
+                                </div>
+                            </div>
+                            {/* Back of card */}
+                            {member.bio && (
+                                <div class="flip-card-back">
+                                    <div class="bio-content">
+                                        <h4>{member.name}</h4>
+                                        <ul>
+                                            {member.bio.map(item => <li>{item}</li>)}
+                                        </ul>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    .team {
+        padding: var(--section-padding);
+        background: #ffffff;
+    }
+
+    .section-title {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 4rem;
+        position: relative;
+        display: inline-block;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--secondary);
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60px;
+        height: 6px;
+        background: var(--primary);
+    }
+
+    .team-location {
+        margin-bottom: 5rem;
+        text-align: left;
+    }
+
+    .team-location:last-child {
+        margin-bottom: 0;
+    }
+
+    .location-title {
+        font-size: 2rem;
+        color: var(--secondary);
+        margin-bottom: 3rem;
+        text-align: left;
+        padding-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+    }
+
+    .location-title::after {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        width: 40px;
+        height: 4px;
+        background: var(--primary);
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+    }
+
+    .static-card {
+        height: 500px;
+        background: #ffffff;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+
+    .static-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        border-color: var(--primary);
+        transition: var(--transition-smooth);
+    }
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .image-container {
+        height: 350px;
+        overflow: hidden;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        background-color: #fafafa;
+        transition: var(--transition-smooth);
+    }
+
+    .member-info {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .member-info h4 {
+        font-size: 1.5rem;
+        margin-bottom: 0.2rem;
+        color: var(--secondary);
+    }
+
+    .text-center { text-align: center; }
+
+    @media (max-width: 768px) {
+        .location-title {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        .flip-card, .static-card {
+            height: 480px;
+        }
+    }
+</style>

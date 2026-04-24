@@ -1,0 +1,50 @@
+---
+const {
+	title = "T&H Avanza | Confianza, Independencia y Libertad",
+	description = "T&H Avanza es la plataforma política independiente de Herrera de Duero y Tudela de Duero. Conoce nuestro equipo, nuestras propuestas y únete a la comunidad.",
+	canonical = "https://tyhavanza.com/",
+	keywords = "T&H Avanza, partido político, Herrera de Duero, Tudela de Duero, independiente, contrato electoral",
+} = Astro.props;
+import '../styles/index.css';
+import Footer from '../components/Footer.astro';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+		<meta name="author" content="T&H Avanza" />
+		<meta name="robots" content="index, follow" />
+		<meta name="theme-color" content="#f8b508" />
+		<link rel="canonical" href={canonical} />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="https://tyhavanza.com/logo.png" />
+		<meta property="og:image:alt" content="T&H Avanza Logo" />
+		<meta property="og:locale" content="es_ES" />
+		<meta property="og:site_name" content="T&H Avanza" />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={canonical} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content="https://tyhavanza.com/logo.png" />
+		<meta name="twitter:image:alt" content="T&H Avanza Logo" />
+	</head>
+	<body>
+		<slot />
+		<Footer />
+	</body>
+</html>
